@@ -5,9 +5,6 @@ import { Sidebar } from "./components/Sidebar";
 import styles from './App.module.css'
 import "./global.css";
 
-// author : {Avatar_url: "", name: "", role: ""}
-// publishedAt : Date
-// content: String
 
 const posts = [
   {
@@ -22,18 +19,18 @@ const posts = [
       {type: 'paragraph', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque'},
       {type: 'link', content: '👉🏼 github.com/albert-miguel'},
     ],
-    publishedAt: new Date('2023-09-27 22:52:00')
+    publishedAt: new Date('2023-09-26 22:52:00')
   },
   {
     id: 2,
     author: {
       avatarUrl: 'https://github.com/portodotvic.png',
-      name: 'Porto LOL',
+      name: 'João Victor Porto',
       role: 'Design',
     },
     content: [
-      {type: 'paragraph', content: 'Hello guys'},
-      {type: 'paragraph', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque'},
+      {type: 'paragraph', content: 'Hello'},
+      {type: 'paragraph', content: 'Lorem, consectetur adipisicing elit. Neque'},
       {type: 'link', content: '👉🏼 github.com/albert-miguel'},
     ],
     publishedAt: new Date('2023-09-27 22:55:00')
@@ -47,7 +44,16 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          {posts.map(post => <Post />)}
+          {posts.map(post => {
+            return (
+              <Post
+                key={post.id}
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            )
+          })}
         </main>
       </div>
     </div>
